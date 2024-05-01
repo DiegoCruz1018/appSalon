@@ -32,6 +32,7 @@
         <input
             type="text"
             id="nombre"
+            pattern="[a-zA-Z ]{2,254}"
             name="nombre"
             placeholder="Tu Nombre"
             value="<?php echo s($usuario->nombre); ?>"
@@ -43,6 +44,7 @@
         <input
             type="text"
             id="apellido"
+            pattern="[a-zA-Z ]{2,254}"
             name="apellido"
             placeholder="Tu Apellido"
             value="<?php echo s($usuario->apellido); ?>"

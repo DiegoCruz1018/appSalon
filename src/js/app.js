@@ -44,6 +44,20 @@ function iniciarApp() {
     mostrarResumen(); // Muestra el resumen de la cita
 }
 
+// function soloLetras(){
+
+//     const inputLetra = document.querySelector('#inputLetra');
+//     inputLetra.addEventListener('input', function(e) {
+//         var letra = e.keyCode;
+
+//         if((letra > 64 && letra < 91) || (letra > 96 && letra < 123) || (letra ===8) || (letra === 32) ){
+//             return true;
+//         }else{
+//             return false;
+//         }
+//     });
+// }
+
 function mostrarSeccion() {
 
     // Ocultar la sección que tenga la clase de mostrar

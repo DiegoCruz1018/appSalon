@@ -3,6 +3,7 @@
     <input 
         type="text"
         id="nombre"
+        pattern="[a-zA-Z ]{2,254}"
         placeholder="Nombre Servicio"
         name="nombre"
         value="<?php echo $servicio->nombre; ?>"

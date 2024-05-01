@@ -38,4 +38,16 @@ class Servicio extends ActiveRecord {
 
         return self::$alertas;
     }
+
+    public function existeServicio(){
+        $query = "SELECT * FROM " . self::$tabla . " WHERE nombre = '" . $this->nombre . "' LIMIT 1";
+
+        $resultado = self::$db->query($query);
+
+        if($resultado->num_rows) {
+            self::$alertas['error'][] = 'El Servicio ya existe';
+        }
+
+        return $resultado;
+    }
 }

@@ -3,9 +3,7 @@
 namespace Controllers;
 
 use Model\Servicio;
-use Model\Usuario;
 use MVC\Router;
-use Random\Engine\Secure;
 
 class ServicioController {
     public static function index(Router $router) {
@@ -33,8 +31,15 @@ class ServicioController {
             $alertas = $servicio->validar();
 
             if(empty($alertas)) {
-                $servicio->guardar();
-                header('Location: /servicios');
+                //Verificar si el servicio ya existe
+                $resultado = $servicio->existeServicio();
+
+                if($resultado->num_rows){
+                    $alertas = Servicio::getAlertas();
+                }else{
+                    $servicio->guardar();
+                    header('Location: /servicios');
+                }
             }
         }
 
@@ -61,8 +66,15 @@ class ServicioController {
             $alertas = $servicio->validar();
 
             if(empty($alertas)) {
-                $servicio->guardar();
-                header('Location: /servicios');
+                //Verificar si el servicio ya existe
+                $resultado = $servicio->existeServicio();
+
+                if($resultado->num_rows){
+                    $alertas = Servicio::getAlertas();
+                }else{
+                    $servicio->guardar();
+                    header('Location: /servicios');
+                }
             }
         }
 

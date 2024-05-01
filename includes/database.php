@@ -1,11 +1,14 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', '12345', 'appsalon_mvc');
-
-
-if (!$db) {
-    echo "Error: No se pudo conectar a MySQL.";
-    echo "error de depuración: " . mysqli_connect_errno();
-    echo "error de depuración: " . mysqli_connect_error();
-    exit;
+function conectarDB() : mysqli { 
+    try {
+        $conexionBD = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASS'], $_ENV['DB_NAME']);
+        $conexionBD->set_charset("utf8");
+        return $conexionBD;
+    }
+    catch (Exception $e)
+      {
+        echo 'Conexion a BD: ',  $e->getMessage();
+        exit;
+      }
 }

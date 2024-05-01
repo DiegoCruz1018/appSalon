@@ -5,11 +5,12 @@ namespace Model;
 class Servicio extends ActiveRecord {
     // Base de datos
     protected static $tabla = 'servicios';
-    protected static $columnasDB = ['id', 'nombre', 'precio', 'creado'];
+    protected static $columnasDB = ['id', 'nombre', 'precio', 'tiempo', 'creado'];
 
     public $id;
     public $nombre;
     public $precio;
+    public $tiempo;
     public $creado;
 
     public function __construct($args = [])
@@ -17,6 +18,7 @@ class Servicio extends ActiveRecord {
         $this->id = $args['id'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
         $this->precio = $args['precio'] ?? '';
+        $this->tiempo = $args['tiempo'] ?? '';
         $this->creado = date('Y/m/d');
     }
 
@@ -29,6 +31,9 @@ class Servicio extends ActiveRecord {
         }
         if(!is_numeric($this->precio)) {
             self::$alertas['error'][] = 'El precio no es válido';
+        }
+        if(!$this->tiempo) {
+            self::$alertas['error'][] = 'El Tiempo del Servicio es Obligatorio';
         }
 
         return self::$alertas;

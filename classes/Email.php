@@ -28,8 +28,8 @@ class Email {
          $mail->Username = 'ff81d006838f28';
          $mail->Password = 'ccb7fe767cb770';
      
-         $mail->setFrom('cuentas@appsalon.com');
-         $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
+         $mail->setFrom('cuentas@leocuts.com');
+         $mail->addAddress('cuentas@leocuts.com', 'LeoCuts.com');
          $mail->Subject = 'Confirma tu Cuenta';
 
          // Set HTML
@@ -37,7 +37,7 @@ class Email {
          $mail->CharSet = 'UTF-8';
 
          $contenido = '<html>';
-         $contenido .= "<p><strong>Hola " . $this->email .  "</strong> Has Creado tu cuenta en App Salón, solo debes confirmarla presionando el siguiente enlace</p>";
+         $contenido .= "<p><strong>Hola " . $this->email .  "</strong> Has Creado tu cuenta en Leo Cut´s, solo debes confirmarla presionando el siguiente enlace</p>";
          $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";        
          $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
          $contenido .= '</html>';
@@ -59,8 +59,8 @@ class Email {
         $mail->Username = 'ff81d006838f28';
         $mail->Password = 'ccb7fe767cb770';
     
-        $mail->setFrom('cuentas@appsalon.com');
-        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
+        $mail->setFrom('cuentas@leocuts.com');
+        $mail->addAddress('cuentas@leocuts.com', 'LeoCuts.com');
         $mail->Subject = 'Reestablece tu password';
 
         // Set HTML

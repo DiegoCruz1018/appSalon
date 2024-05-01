@@ -10,6 +10,7 @@
         <li>
             <p>Nombre: <span><?php echo $servicio->nombre; ?></span> </p>
             <p>Precio: <span>$<?php echo $servicio->precio; ?></span> </p>
+            <p>Tiempo: <span> <?php echo $servicio->tiempo;?>  minutos </span> </p>
 
             <div class="acciones">
                 <a class="boton" href="/servicios/actualizar?id=<?php echo $servicio->id; ?>">Actualizar</a>

@@ -13,6 +13,7 @@ class RegistroController {
         ]);
     }
 
+    /*
     public static function pago(Router $router){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -31,4 +32,5 @@ class RegistroController {
             $resultado = $registro->guardar();
         }
     }
+    */
 }

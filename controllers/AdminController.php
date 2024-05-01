@@ -20,7 +20,7 @@ class AdminController {
 
         // Consultar la base de datos
         $consulta = "SELECT citas.id, citas.hora, CONCAT( usuarios.nombre, ' ', usuarios.apellido) as cliente, ";
-        $consulta .= " usuarios.email, usuarios.telefono, servicios.nombre as servicio, servicios.precio  ";
+        $consulta .= " usuarios.email, usuarios.telefono, servicios.nombre as servicio, servicios.precio, citas.empleadoId ";
         $consulta .= " FROM citas  ";
         $consulta .= " LEFT OUTER JOIN usuarios ";
         $consulta .= " ON citas.usuarioId=usuarios.id  ";
@@ -28,6 +28,8 @@ class AdminController {
         $consulta .= " ON citasServicios.citaId=citas.id ";
         $consulta .= " LEFT OUTER JOIN servicios ";
         $consulta .= " ON servicios.id=citasServicios.servicioId ";
+        $consulta .= " LEFT OUTER JOIN empleados ";
+        $consulta .= " ON empleados.id = citas.empleadoId ";
         $consulta .= " WHERE fecha =  '$fecha' ";
 
         $citas = AdminCita::SQL($consulta);

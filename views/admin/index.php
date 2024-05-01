@@ -40,6 +40,11 @@
                     <p>Cliente: <span><?php echo $cita->cliente; ?></span></p>
                     <p>Email: <span><?php echo $cita->email; ?></span></p>
                     <p>Número: <span><?php echo $cita->telefono; ?></span></p>
+                    <p>Barbero: <span> <?php if($cita->empleadoId == '1'){
+                        echo 'Irving Garcia';
+                    }else{
+                        echo 'Erick Silva';
+                    } ?> </span> </p>
 
                     <h3>Servicios</h3>
             <?php 

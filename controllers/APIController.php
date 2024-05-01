@@ -5,16 +5,33 @@ namespace Controllers;
 use Model\Cita;
 use Model\CitaServicio;
 use Model\Servicio;
+use Model\Empleado;
 
 class APIController {
     public static function index() {
         $servicios = Servicio::all();
         echo json_encode($servicios);
+        return;
     }
 
-    public static function obtenerCitas() {
-        $citas = Cita::all();
-        echo json_encode($citas);
+    public static function empleados(){
+
+        if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+            header('Content-Type: application/json');
+            $datosQuery = new Cita($_POST);
+            
+            $query = "SELECT e.id, e.nombre";
+            $query .= " FROM empleados e";
+            $query .= " LEFT JOIN citas c ON e.id = c.empleadoId";
+            $query .= " AND c.fecha='" . $datosQuery->fecha . "' AND ((c.hora BETWEEN '" . $datosQuery->hora . "' AND '" . $datosQuery->horaFin . "')";
+            $query .= " OR (c.horaFin BETWEEN '" . $datosQuery->hora . "' AND '" . $datosQuery->horaFin . "')) ";
+            $query .= " WHERE c.id IS NULL";
+
+            $objBarberos = Empleado::traer($query);
+            echo json_encode($objBarberos);
+            return;
+        }
+        
     }
 
     public static function guardar() {

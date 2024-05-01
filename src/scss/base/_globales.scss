@@ -33,3 +33,33 @@ a {
 img {
     max-width: 100%;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.slogan{
+    margin-top: 5rem;
+    font-weight: bold;
+    display: flex;
+}
+
+.info-text{
+    font-size: 1.5rem;
+}
+
+.info-dir-tel{
+    margin-top: 5rem;
+    font-weight: bold;
+    
+    .info-flex{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.centrar-contenido{
+    display: flex;
+    justify-content: flex-end;
+}

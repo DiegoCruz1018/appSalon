@@ -40,6 +40,10 @@ $router->get('/api/obtenerCitas', [APIController::class, 'obtenerCitas']);
 $router->post('/api/citas', [APIController::class, 'guardar']);
 $router->post('/api/eliminar', [APIController::class, 'eliminar']);
 
+//Api barberos
+//$router->get('api/obtenerBarberos', [APIController::class, 'barberos']);
+$router->post('/api/empleados',[APIController::class, 'empleados']);
+
 // CRUD de Servicios
 $router->get('/servicios', [ServicioController::class, 'index']);
 $router->get('/servicios/crear', [ServicioController::class, 'crear']);

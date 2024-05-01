@@ -128,7 +128,7 @@ class ActiveRecord {
     public static function where($columna, $valor) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE $columna = '$valor'";
         $resultado = self::consultarSQL($query);
-        return array_shift( $resultado ) ;
+        return array_shift( $resultado );
     }
 
     // Consulta Plana de SQL (Utilizar cuando los métodos del modelo no son suficientes)
@@ -186,4 +186,9 @@ class ActiveRecord {
         return $resultado;
     }
 
+    public static function traer($QueryPersonal) {
+        $query = $QueryPersonal;
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
 }
